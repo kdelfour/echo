@@ -1,26 +1,42 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'Echo',
-			social: {
-				github: 'https://github.com/maxds-lyon/echo',
-			},
-			sidebar: [
-				{
-					label: 'A propos',
-					items: [
-						{ label: 'Vision et philosophie', slug: 'about/vision_philosophie' },
-						{ label: 'Fonctionnalités', slug: 'about/features' },
-						{ label: 'Architecture', slug: 'about/architecture' },
-						{ label: 'Contribution au code', slug: 'about/code_contribution' },
-					],
-				}
-			],
-		}),
-	],
+  integrations: [
+    starlight({
+      title: "Echo",
+      logo: {
+        src: "./src/assets/logo.svg",
+      },
+      social: {
+        github: "https://github.com/maxds-lyon/echo",
+      },
+      customCss: ["./src/css/tailwind.css"],
+      sidebar: [
+        { label: "Introduction", autogenerate: { directory: "introduction" } },
+        {
+          label: "Guide de démarrage",
+          autogenerate: { directory: "quick_start" },
+        },
+        { label: "Architecture", autogenerate: { directory: "architecture" } },
+        { label: "Fonctionnalités", autogenerate: { directory: "features" } },
+        {
+          label: "Standards de développement",
+          autogenerate: { directory: "development_standards" },
+        },
+        { label: "Contribution", autogenerate: { directory: "contribution" } },
+        { label: "Déploiement", autogenerate: { directory: "deployment" } },
+        { label: "FAQ", autogenerate: { directory: "faq" } },
+        {
+          label: "Ressources supplémentaires",
+          autogenerate: { directory: "additional_resources" },
+        },
+      ],
+    }),
+    tailwind({ applyBaseStyles: false }),
+  ],
 });
