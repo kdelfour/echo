@@ -20,13 +20,13 @@ export default defineConfig({
         { label: "Introduction", autogenerate: { directory: "introduction" } },
         {
           label: "Guide de démarrage",
-          autogenerate: { directory: "quick_start" },
+          autogenerate: { directory: "quick-start-guide" },
         },
         { label: "Architecture", autogenerate: { directory: "architecture" } },
         { label: "Fonctionnalités", autogenerate: { directory: "features" } },
         {
           label: "Standards de développement",
-          autogenerate: { directory: "development_standards" },
+          autogenerate: { directory: "development standards" },
         },
         { label: "Contribution", autogenerate: { directory: "contribution" } },
         { label: "Déploiement", autogenerate: { directory: "deployment" } },
